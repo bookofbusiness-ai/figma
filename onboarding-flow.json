@@ -1,0 +1,189 @@
+{
+  "name": "BookofBusiness.ai Onboarding Flow",
+  "version": "1.0.0",
+  "theme": {
+    "background": "#1E1E1E",
+    "surface": "#2D2D2D",
+    "border": "#4B5563",
+    "borderSelected": "#3B82F6",
+    "fillSelected": "rgba(59, 130, 246, 0.15)",
+    "textPrimary": "#FFFFFF",
+    "textSecondary": "#9CA3AF",
+    "textMuted": "#6B7280",
+    "accent": "#3B82F6",
+    "accentHover": "#2563EB",
+    "error": "#EF4444",
+    "success": "#22C55E",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "borderRadius": "8px",
+    "borderRadiusChip": "12px",
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "xxl": "48px"
+    }
+  },
+  "layout": {
+    "maxWidth": "600px",
+    "planCardsMaxWidth": "960px",
+    "topBar": {
+      "left": "backArrow",
+      "right": "languageSelector"
+    },
+    "bottomBar": {
+      "left": "progressBar",
+      "right": "continueButton"
+    }
+  },
+  "steps": [
+    {
+      "id": "name",
+      "order": 1,
+      "progress": 0.2,
+      "heading": "What's your name?",
+      "subtitle": "This is what others see when you join your team workspace.",
+      "type": "text-input",
+      "input": {
+        "placeholder": "Your full name",
+        "minLength": 2,
+        "required": true
+      },
+      "preview": {
+        "enabled": true,
+        "template": "{name}'s Workspace",
+        "showAvatar": true,
+        "badge": "Pro"
+      },
+      "showBackArrow": false,
+      "continueLabel": "Continue"
+    },
+    {
+      "id": "business-type",
+      "order": 2,
+      "progress": 0.4,
+      "heading": "What kind of business do you run?",
+      "subtitle": "This helps us tailor your AI agents and templates.",
+      "type": "single-select-chips",
+      "options": [
+        { "label": "Sales Team", "value": "sales_team" },
+        { "label": "Marketing Agency", "value": "marketing_agency" },
+        { "label": "Consulting Firm", "value": "consulting" },
+        { "label": "Real Estate", "value": "real_estate" },
+        { "label": "Solo Entrepreneur", "value": "solo" },
+        { "label": "Something else", "value": "other", "showTextInput": true }
+      ],
+      "required": true,
+      "showBackArrow": true,
+      "continueLabel": "Continue"
+    },
+    {
+      "id": "role",
+      "order": 3,
+      "progress": 0.6,
+      "heading": "Which role best describes you?",
+      "subtitle": "If you wear many hats, pick what you do most often.",
+      "type": "single-select-chips",
+      "columns": 3,
+      "options": [
+        { "label": "Sales Rep", "value": "sales_rep" },
+        { "label": "Sales Manager", "value": "sales_manager" },
+        { "label": "VP of Sales", "value": "vp_sales" },
+        { "label": "Marketing", "value": "marketing" },
+        { "label": "Founder / CEO", "value": "founder_ceo" },
+        { "label": "Operations", "value": "operations" },
+        { "label": "Account Executive", "value": "account_exec" },
+        { "label": "BDR / SDR", "value": "bdr_sdr" },
+        { "label": "Other", "value": "other", "showTextInput": true }
+      ],
+      "required": true,
+      "showBackArrow": true,
+      "continueLabel": "Continue"
+    },
+    {
+      "id": "plan-selection",
+      "order": 4,
+      "progress": 0.8,
+      "heading": "Which plan would you like?",
+      "headingAlign": "center",
+      "type": "plan-cards",
+      "defaultSelected": "growth",
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "subtitle": "Best for solopreneurs getting started with AI",
+          "price": { "amount": 99, "currency": "USD", "interval": "month" },
+          "badge": null,
+          "features": [
+            "1 custom AI agent",
+            "Branded website or landing pages",
+            "24/7 automated operations",
+            "Email & text outreach",
+            "Lead capture & qualification",
+            "Calendar integration",
+            "Weekly performance reports",
+            "Email support"
+          ]
+        },
+        {
+          "id": "growth",
+          "name": "Growth",
+          "subtitle": "Best for growing teams that need more firepower",
+          "price": { "amount": 149, "currency": "USD", "interval": "month" },
+          "badge": "Most popular",
+          "features": [
+            "Everything in Starter, plus:",
+            "2 custom AI agents",
+            "CRM integration",
+            "Advanced analytics dashboard",
+            "Priority support",
+            "A/B testing campaigns",
+            "Custom reporting"
+          ]
+        },
+        {
+          "id": "enterprise",
+          "name": "Enterprise",
+          "subtitle": "Best for teams that need full AI coverage",
+          "price": { "amount": 299, "currency": "USD", "interval": "month" },
+          "badge": null,
+          "features": [
+            "Everything in Growth, plus:",
+            "Unlimited AI agents",
+            "Dedicated account manager",
+            "Custom integrations",
+            "SLA guarantee",
+            "Team training & onboarding",
+            "API access"
+          ]
+        }
+      ],
+      "showBackArrow": true,
+      "continueLabel": "Continue"
+    },
+    {
+      "id": "workspace-setup",
+      "order": 5,
+      "progress": 1.0,
+      "heading": "Name your workspace",
+      "subtitle": "You can always change this later in settings.",
+      "type": "workspace-setup",
+      "workspaceInput": {
+        "placeholder": "e.g. Acme Sales Team",
+        "autoFillTemplate": "{name}'s Workspace",
+        "required": true
+      },
+      "inviteSection": {
+        "label": "Invite teammates (optional)",
+        "placeholder": "colleague@company.com",
+        "maxInvites": 5,
+        "required": false
+      },
+      "showBackArrow": true,
+      "continueLabel": "Launch Workspace"
+    }
+  ]
+}
